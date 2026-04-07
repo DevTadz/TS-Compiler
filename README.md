@@ -7,6 +7,7 @@ Initially this project is for my own learning, therefore the code will be subopt
 Handles:
 - let variable
 - string
+
 Todo:
 - handle \n
 
