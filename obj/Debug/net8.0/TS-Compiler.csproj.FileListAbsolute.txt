@@ -1,0 +1,15 @@
+C:\github repositories\TS-Compiler\obj\Debug\net8.0\TS-Compiler.GeneratedMSBuildEditorConfig.editorconfig
+C:\github repositories\TS-Compiler\obj\Debug\net8.0\TS-Compiler.AssemblyInfoInputs.cache
+C:\github repositories\TS-Compiler\obj\Debug\net8.0\TS-Compiler.AssemblyInfo.cs
+C:\github repositories\TS-Compiler\obj\Debug\net8.0\TS-Compiler.csproj.CoreCompileInputs.cache
+C:\github repositories\TS-Compiler\obj\Debug\net8.0\TS-Compiler.sourcelink.json
+C:\github repositories\TS-Compiler\bin\Debug\net8.0\TS-Compiler.exe
+C:\github repositories\TS-Compiler\bin\Debug\net8.0\TS-Compiler.deps.json
+C:\github repositories\TS-Compiler\bin\Debug\net8.0\TS-Compiler.runtimeconfig.json
+C:\github repositories\TS-Compiler\bin\Debug\net8.0\TS-Compiler.dll
+C:\github repositories\TS-Compiler\bin\Debug\net8.0\TS-Compiler.pdb
+C:\github repositories\TS-Compiler\obj\Debug\net8.0\TS-Compiler.dll
+C:\github repositories\TS-Compiler\obj\Debug\net8.0\refint\TS-Compiler.dll
+C:\github repositories\TS-Compiler\obj\Debug\net8.0\TS-Compiler.pdb
+C:\github repositories\TS-Compiler\obj\Debug\net8.0\TS-Compiler.genruntimeconfig.cache
+C:\github repositories\TS-Compiler\obj\Debug\net8.0\ref\TS-Compiler.dll

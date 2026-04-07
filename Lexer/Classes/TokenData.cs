@@ -9,8 +9,8 @@ namespace TS_Compiler.Lexer.Classes
 {
     public class TokenData
     {
-        public required TokenType Type;
-        public required char val;
-        public required Location location;
+        public TokenType Type;
+        public string val;
+        public Location location;
     }
 }

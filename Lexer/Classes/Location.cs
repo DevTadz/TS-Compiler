@@ -8,7 +8,7 @@ namespace TS_Compiler.Lexer.Classes
 {
     public class Location
     {
-        public required int Col;
-        public required int Line;
+        public int Col;
+        public int Line;
     }
 }

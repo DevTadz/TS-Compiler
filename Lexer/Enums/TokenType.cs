@@ -8,19 +8,11 @@ namespace TS_Compiler.Lexer.Enums
 {
     public enum TokenType
     {
-        Illegal,
-        EOF,
-        Ident,
-        Int,
-        Assign,
-        Pluss,
-        Comma,
-        Semicolon,
-        LParen,
-        RParen,
-        LBrace,
-        RBrace,
-        Function,
-        Let
+        Let,
+        Daria_Variable,
+        Identifier,
+        Equals,
+        String,
+        SemmiColon
     }
 }
