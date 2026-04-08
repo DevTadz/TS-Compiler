@@ -14,8 +14,7 @@ namespace TS_Compiler.Lexer
 
         Dictionary<string, TokenType> keywords = new()
         {
-            { "let", TokenType.Let },
-            { "daria", TokenType.Daria_Variable }
+            { "let", TokenType.Let }
         };
 
         Dictionary<string, TokenType> operators = new()
@@ -50,21 +49,24 @@ namespace TS_Compiler.Lexer
             int i = 0;
             var location = new Location();
             location.Col = 0;
+            location.Line = 1;
 
             while (i < characters.Count)
             {
                 char c = characters[i];
                 var token = new TokenData();
 
-                if (c == '"')
+                if (c == '"') // String Value
                 {
                     i++; // To skip opening quote
+                    location.Col++;
                     var sb_stringVal = new StringBuilder(); // use stringbuilder for performance
 
                     while (i < characters.Count && characters[i] != '"')
                     {
                         sb_stringVal.Append(characters[i]);// Populate stringVal with "..."
                         i++;
+                        location.Col++;
                     }
 
                     // EOF protection. Case: "hello
@@ -75,7 +77,6 @@ namespace TS_Compiler.Lexer
 
                     string stringVal = sb_stringVal.ToString();     
 
-                    i++; // To skip closing quote
                     token.val = stringVal;  
                     token.location = new Location
                     {
@@ -96,7 +97,9 @@ namespace TS_Compiler.Lexer
                     {
                         sb_identifier.Append(characters[i]);
                         i++;
+                        location.Col++;
                     }
+                    i -= 1;
 
                     string identifier = sb_identifier.ToString().ToLower();  
                     
@@ -126,9 +129,8 @@ namespace TS_Compiler.Lexer
                     location.Col += identifier.Length;
 
                     tokens.Add(token);
-                    i++;
                 }
-                else if(!char.IsLetterOrDigit(c) && !char.IsWhiteSpace(c)) // operator?
+                else if(!char.IsLetterOrDigit(c) && !char.IsWhiteSpace(c)) // operator, dot or semi
                 {
                     if(operators.ContainsKey(c.ToString()))
                     {
@@ -139,31 +141,68 @@ namespace TS_Compiler.Lexer
                         {
                             Line = location.Line,
                             Col = location.Col
-                        }; ;
+                        };
                         token.Type = type;
 
                         tokens.Add(token);
                     }
-                    else if(c == ';') // EOF
+                    else if(c == '.')
                     {
                         token.val = c.ToString();
                         token.location = new Location
                         {
                             Line = location.Line,
                             Col = location.Col
-                        }; ;
+                        };
+                        token.Type = TokenType.Dot;
+
+                        tokens.Add(token);
+                    }
+                    else if (c == ';') // EOF
+                    {
+                        token.val = c.ToString();
+                        token.location = new Location
+                        {
+                            Line = location.Line,
+                            Col = location.Col
+                        };
                         token.Type = TokenType.SemmiColon;
 
                         tokens.Add(token);
                     }
-                    i++;
+                    else if(c == '(')
+                    {
+                        token.val = c.ToString();
+                        token.location = new Location
+                        {
+                            Line = location.Line,
+                            Col = location.Col
+                        };
+                        token.Type = TokenType.LeftParen;
+
+                        tokens.Add(token);
+                    }
+                    else if(c == ')')
+                    {
+                        token.val = c.ToString();
+                        token.location = new Location
+                        {
+                            Line = location.Line,
+                            Col = location.Col
+                        };
+                        token.Type = TokenType.RightParen;
+
+                        tokens.Add(token);
+                    }
                 }
-                else // whitespace
+                else if (c == '\n')
                 {
-                    i++;
+                    location.Line++;
+                    location.Col = 0;
                 }
 
-                location.Col = i;
+                i++;
+                location.Col++;
             }
 
             foreach (var token in tokens) 

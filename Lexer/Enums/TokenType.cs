@@ -9,10 +9,12 @@ namespace TS_Compiler.Lexer.Enums
     public enum TokenType
     {
         Let,
-        Daria_Variable,
         Identifier,
         Equals,
         String,
-        SemmiColon
+        SemmiColon,
+        Dot,
+        LeftParen,
+        RightParen, 
     }
 }
